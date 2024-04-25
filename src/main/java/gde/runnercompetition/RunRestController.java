@@ -30,4 +30,19 @@ public class RunRestController {
     public List<RunnerEntity> getRunners() {
         return runnerRepository.findAll();
     }
+
+    @PostMapping("/addRunner")
+    public ResponseEntity<String> addRunner(@RequestBody RunnerEntity runner) {
+        try {
+            runnerRepository.save(runner);
+            return ResponseEntity.ok("Futó sikeresen hozzáadva!");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Hiba történt a futó hozzáadása közben!");
+        }
+    }
+
+    @GetMapping("/getRaceRunners/{id}")
+    public List<Object[]> getRaceRunnersById(@PathVariable Long id) {
+        return resultRepository.findRunnerNamesAndResultsByRaceIdOrderByTimeInMinutesAsc(id);
+    }
 }
