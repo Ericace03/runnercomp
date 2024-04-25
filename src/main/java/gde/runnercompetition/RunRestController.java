@@ -49,6 +49,7 @@ public class RunRestController {
     @PostMapping("/updateRace")
     public ResponseEntity<String> updateRace(@RequestBody RaceUpdate raceUpdate) {
         var race = new RaceEntity();
+        race.setRaceId(raceUpdate.raceId());
         race.setRaceName(raceUpdate.raceName());
         race.setRaceDistance(raceUpdate.raceDistance());
         raceRepository.save(race);
@@ -61,9 +62,9 @@ public class RunRestController {
         var raceId = resultData.raceId();
 
         var runner = runnerRepository.findById(runnerId)
-                .orElseThrow(() -> new RuntimeException("Futó nem található! runnerId: " + runnerId));
+                .orElse(null);
         var race = raceRepository.findById(raceId)
-                .orElseThrow(() -> new RuntimeException("Verseny nem található! raceId: " + raceId));
+                .orElse(null);
 
         var newResult = new ResultEntity();
         newResult.setRunner(runner);
@@ -80,7 +81,7 @@ public class RunRestController {
         return ResponseEntity.ok(averageTime);
     }
 
-    public record RaceUpdate(String raceName, int raceDistance) {
+    public record RaceUpdate(long raceId, String raceName, int raceDistance) {
 
     }
 

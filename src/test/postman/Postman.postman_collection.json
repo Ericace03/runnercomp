@@ -118,6 +118,159 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/addRunner",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"addRunner\",\n    \"request\": {\n        \"method\": \"POST\",\n        \"header\": [],\n        \"body\": {\n            \"mode\": \"raw\",\n            \"raw\": \"{\\r\\n    \\\"runnerId\\\": 5,\\r\\n    \\\"runnerName\\\": \\\"Eszter\\\",\\r\\n    \\\"runnerAge\\\": 33,\\r\\n    \\\"runnerGender\\\": \\\"nő\\\"\\r\\n}\",\n            \"options\": {\n                \"raw\": {\n                    \"language\": \"json\"\n                }\n            }\n        },\n        \"url\": {\n            \"raw\": \"http://localhost:8080/api/addRunner\",\n            \"protocol\": \"http\",\n            \"host\": [\n                \"localhost\"\n            ],\n            \"port\": \"8080\",\n            \"path\": [\n                \"api\",\n                \"addRunner\"\n            ]\n        }\n    },\n    \"response\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/addRunner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"addRunner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/getRaceRunners/2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"getRaceRunners\",\n    \"request\": {\n        \"method\": \"GET\",\n        \"header\": [],\n        \"url\": {\n            \"raw\": \"http://localhost:8080/api/getRaceRunners/2\",\n            \"protocol\": \"http\",\n            \"host\": [\n                \"localhost\"\n            ],\n            \"port\": \"8080\",\n            \"path\": [\n                \"api\",\n                \"getRaceRunners\",\n                \"2\"\n            ]\n        }\n    },\n    \"response\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/getRaceRunners/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getRaceRunners",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": " http://localhost:8080/api/updateRace",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\t\t\"request\": {\n\t\t\t\t\"method\": \"POST\",\n\t\t\t\t\"header\": [],\n\t\t\t\t\"body\": {\n\t\t\t\t\t\"mode\": \"raw\",\n\t\t\t\t\t\"raw\": \"    {\\r\\n        \\\"raceId\\\": 2,\\r\\n        \\\"raceName\\\": \\\"Hosszútáv\\\",\\r\\n        \\\"raceDistance\\\": 800\\r\\n    }\",\n\t\t\t\t\t\"options\": {\n\t\t\t\t\t\t\"raw\": {\n\t\t\t\t\t\t\t\"language\": \"json\"\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\t\"url\": \"http://localhost:8080/api/updateRace\"\n\t\t\t},\n\t\t\t\"response\": []\n\t\t}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/updateRace",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"updateRace"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/addResult",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"addResult\",\n    \"request\": {\n        \"method\": \"POST\",\n        \"header\": [],\n        \"body\": {\n            \"mode\": \"raw\",\n            \"raw\": \"{\\r\\n    \\\"runnerId\\\": 1,\\r\\n    \\\"raceId\\\": 2,\\r\\n    \\\"resultTimeInMinutes\\\": 60\\r\\n}\"\n        },\n        \"url\": {\n            \"raw\": \"http://localhost:8080/api/addResult\",\n            \"protocol\": \"http\",\n            \"host\": [\n                \"localhost\"\n            ],\n            \"port\": \"8080\",\n            \"path\": [\n                \"api\",\n                \"addResult\"\n            ]\n        }\n    },\n    \"response\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/addResult",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"addResult"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/getAverageTime/2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"getAverageTime\",\n    \"request\": {\n        \"method\": \"GET\",\n        \"header\": [],\n        \"url\": {\n            \"raw\": \"http://localhost:8080/api/getAverageTime/2\",\n            \"protocol\": \"http\",\n            \"host\": [\n                \"localhost\"\n            ],\n            \"port\": \"8080\",\n            \"path\": [\n                \"api\",\n                \"getAverageTime\",\n                \"2\"\n            ]\n        }\n    },\n    \"response\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/getAverageTime/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getAverageTime",
+						"2"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
