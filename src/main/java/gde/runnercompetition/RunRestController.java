@@ -45,4 +45,47 @@ public class RunRestController {
     public List<Object[]> getRaceRunnersById(@PathVariable Long id) {
         return resultRepository.findRunnerNamesAndResultsByRaceIdOrderByTimeInMinutesAsc(id);
     }
+
+    @PostMapping("/updateRace")
+    public ResponseEntity<String> updateRace(@RequestBody RaceUpdate raceUpdate) {
+        var race = new RaceEntity();
+        race.setRaceName(raceUpdate.raceName());
+        race.setRaceDistance(raceUpdate.raceDistance());
+        raceRepository.save(race);
+        return ResponseEntity.ok("A verseny sikeresen frissítve!");
+    }
+
+    @PostMapping("/addResult")
+    public ResponseEntity<String> addResult(@RequestBody AddResultEntity resultData) {
+        var runnerId = resultData.runnerId();
+        var raceId = resultData.raceId();
+
+        var runner = runnerRepository.findById(runnerId)
+                .orElseThrow(() -> new RuntimeException("Futó nem található! runnerId: " + runnerId));
+        var race = raceRepository.findById(raceId)
+                .orElseThrow(() -> new RuntimeException("Verseny nem található! raceId: " + raceId));
+
+        var newResult = new ResultEntity();
+        newResult.setRunner(runner);
+        newResult.setRace(race);
+        newResult.setTimeInMinutes(resultData.resultTimeInMinutes());
+
+        resultRepository.save(newResult);
+        return ResponseEntity.ok("Az új eredmény sikeresen hozzáadva!");
+    }
+
+    @GetMapping("/getAverageTime/{raceId}")
+    public ResponseEntity<Double> getAverageTime(@PathVariable Long raceId) {
+        var averageTime = resultRepository.getAverageTimeByRace(raceId);
+        return ResponseEntity.ok(averageTime);
+    }
+
+    public record RaceUpdate(String raceName, int raceDistance) {
+
+    }
+
+    public record AddResultEntity(long resultId, long raceId, long runnerId, int resultTimeInMinutes) {
+
+    }
+
 }

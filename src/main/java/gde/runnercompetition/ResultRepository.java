@@ -11,4 +11,7 @@ public interface ResultRepository extends JpaRepository<ResultEntity, Long> {
 
     @Query("SELECT r.runner.runnerName, r.timeInMinutes FROM ResultEntity r WHERE r.race.raceId = ?1 ORDER BY r.timeInMinutes")
     List<Object[]> findRunnerNamesAndResultsByRaceIdOrderByTimeInMinutesAsc(Long raceId);
+
+    @Query("SELECT AVG(r.timeInMinutes) FROM ResultEntity r WHERE r.race.raceId = ?1")
+    Double getAverageTimeByRace(Long raceId);
 }
