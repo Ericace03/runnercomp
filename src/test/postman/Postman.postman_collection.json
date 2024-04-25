@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "e61e999b-5a34-442e-a8f7-1ff2dfc7d06d",
+		"name": "Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34504755"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/getRunners",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `",
+							"<canvas id=\"myChart\" height=\"75\"></canvas>",
+							"",
+							"<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js\"></script> ",
+							"",
+							"<script>",
+							"    var ctx = document.getElementById(\"myChart\");",
+							"",
+							"    var myChart = new Chart(ctx, {",
+							"        type: \"bar\",",
+							"        data: {",
+							"            labels: [],",
+							"            datasets: [{",
+							"                data: [],",
+							"                ",
+							"                // Change these colours to customize the chart",
+							"                backgroundColor: [\"#003f5c\", \"#58508d\", \"#bc5090\", \"#ff6361\", \"#ffa600\"],",
+							"            }]",
+							"        },",
+							"        options: {",
+							"            legend: { display: false },",
+							"            title: {",
+							"                display: true,",
+							"                text: 'Runners Data'",
+							"            },",
+							"            scales: {",
+							"                xAxes: [{",
+							"                    display: true,",
+							"                    scaleLabel: {",
+							"                        display: true,",
+							"                        labelString: 'Runner ID'",
+							"                    }",
+							"                }],",
+							"                yAxes: [{",
+							"                    display: true,",
+							"                    scaleLabel: {",
+							"                        display: true,",
+							"                        labelString: 'Runner Age'",
+							"                    }",
+							"                }]",
+							"            }",
+							"        }",
+							"",
+							"    });",
+							"",
+							"    // Access the data passed to pm.visualizer.set() from the JavaScript",
+							"    // code of the Visualizer template",
+							"    pm.getData(function (err, value) {",
+							"        myChart.data.datasets[0].data = value.response.data.map(runner => runner.runnerAge);",
+							"        myChart.data.labels = value.response.data.map(runner => runner.runnerId);",
+							"        myChart.update();",
+							"    });",
+							"",
+							"</script>`;",
+							"function constructVisualizerPayload() {",
+							"    var res = pm.response.json();",
+							"",
+							"    var visualizerData = {",
+							"    ",
+							"        // Labels take an array of strings",
+							"        labels: res.map(runner => runner.runnerId),",
+							"    ",
+							"        // Data takes an array of numbers",
+							"        data: res.map(runner => runner.runnerAge)",
+							"    };",
+							"",
+							"    return {response: visualizerData};",
+							"}",
+							"",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Összes futó\",\n    \"request\": {\n        \"method\": \"GET\",\n        \"header\": [],\n        \"url\": {\n            \"raw\": \"http://localhost:8080/api/getRunners\",\n            \"protocol\": \"http\",\n            \"host\": [\n                \"localhost\"\n            ],\n            \"port\": \"8080\",\n            \"path\": [\n                \"api\",\n                \"getRunners\"\n            ]\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/getRunners",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getRunners"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
