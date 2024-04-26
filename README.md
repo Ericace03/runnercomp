@@ -1,4 +1,5 @@
 # Futóverseny kezelő alkalmazás
+<img width="677" alt="feladat" src="https://github.com/Ericace03/runnercomp/assets/113349893/08bba890-7fc3-4fc9-b0e0-bb7c5f2f3167">
 
 ### GDE - Alkalmazásfejlesztés technológia - F17NZC
 Cél: Fejlessz egy webalkalmazást, amely képes kezelni egy futóverseny résztvevőinek adatait, eredményeit, és megjeleníteni azok statisztikáit.
