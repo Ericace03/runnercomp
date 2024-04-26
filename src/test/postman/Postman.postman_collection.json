@@ -126,7 +126,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"addRunner\",\n    \"request\": {\n        \"method\": \"POST\",\n        \"header\": [],\n        \"body\": {\n            \"mode\": \"raw\",\n            \"raw\": \"{\\r\\n    \\\"runnerId\\\": 5,\\r\\n    \\\"runnerName\\\": \\\"Eszter\\\",\\r\\n    \\\"runnerAge\\\": 33,\\r\\n    \\\"runnerGender\\\": \\\"nő\\\"\\r\\n}\",\n            \"options\": {\n                \"raw\": {\n                    \"language\": \"json\"\n                }\n            }\n        },\n        \"url\": {\n            \"raw\": \"http://localhost:8080/api/addRunner\",\n            \"protocol\": \"http\",\n            \"host\": [\n                \"localhost\"\n            ],\n            \"port\": \"8080\",\n            \"path\": [\n                \"api\",\n                \"addRunner\"\n            ]\n        }\n    },\n    \"response\": []\n}",
+					"raw": "{\n    \"runnerId\": 6,\n    \"runnerName\": \"Ferenc\",\n    \"runnerAge\": 40,\n    \"runnerGender\": \"férfi\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
