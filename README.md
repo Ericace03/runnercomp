@@ -1,5 +1,6 @@
 # Futóverseny kezelő alkalmazás
 
+### GDE - Elosztott alkalmazások - F17NZC
 ### GDE - Alkalmazásfejlesztés technológia - F17NZC
 
 <img width="674" alt="feladat" src="https://github.com/Ericace03/runnercomp/assets/113349893/166c60fd-af6c-4932-9b26-ca6722f45bea">
